@@ -1,0 +1,36 @@
+<h1 style="text-align: center; color: #1ba098;">
+    Messages
+</h1>
+
+<div *ngIf="!showAddMessage">
+    <div class="message-container" *ngFor="let message of messages">
+        <div class="message">
+            <h3>{{message.author['profile'].firstName}}: {{message.title}}</h3>
+            <p>{{message.message}}</p>
+        </div>
+    </div>
+    <div *ngIf="isAdmin" style="text-align: center;">
+        <button (click)="newMessage()">New Message</button>
+    </div>
+</div>
+<div *ngIf="showAddMessage" class="modal" >
+    <form [formGroup]="createMessage" (ngSubmit)="addMessage()">
+        <button class="back-button" (click)="backToHome()">Back</button>
+        <div class="modal-content" (click)="$event.stopPropagation()">
+            <label for="title">Title</label>
+            <input type="text" name="title" id="title" formControlName="title" />
+            <div *ngIf="createMessage.get('title')?.invalid && createMessage.get('title')?.touched">
+                <small>title is required.</small>
+            </div>
+
+            <label for="msg">Message</label>
+            <input type="text" name="msg" id="msg" formControlName="msg" />
+            <div *ngIf="createMessage.get('msg')?.invalid && createMessage.get('msg')?.touched">
+                <small>last name is required.</small>
+            </div>
+
+            <button type="submit" [disabled]="createMessage.invalid">Submit</button>
+        </div>
+
+    </form>
+</div>

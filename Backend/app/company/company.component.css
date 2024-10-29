@@ -1,0 +1,54 @@
+.company-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+  }
+  
+  .company-page h1 {
+    color: #1BA098;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+  
+  .company-page select {
+    padding: 10px;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    width: 20%;
+    border: 1px solid #ccc;
+  }
+
+  .company-page option {
+    text-align: center;
+  }
+  
+  .company-page button {
+    margin-top: 1rem;
+    padding: 10px 20px;
+    font-size: 1.1rem;
+    background-color: #1BA098;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .company-page button:hover {
+    background-color: #084C57;
+  }
+
+  .error-message {
+    color: red;
+    margin-top: 10px;
+    font-size: 0.9rem;
+  }
+
+  .company-page button:disabled {
+    background-color: #555;
+    color: #fff;
+    cursor: default;
+  }
+  
+  

@@ -1,0 +1,7 @@
+<nav *ngIf="showNavbar">
+    <a routerLink="/home" routerLinkActive="active-link"><h1>Home</h1></a>
+    <a routerLink="/company" routerLinkActive="active-link" *ngIf="adminView"><h1>Company</h1></a>
+    <a routerLink="/teams" routerLinkActive="active-link"><h1>Teams</h1></a>
+    <a routerLink="/users" routerLinkActive="active-link" *ngIf="adminView"><h1>Users</h1></a>
+    <a (click)="logout($event)"><h1>Logout</h1></a>
+</nav>

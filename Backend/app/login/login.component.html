@@ -1,0 +1,14 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.2.1/dist/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+<div class="login-form">
+  <h1 style="text-align: center;">Login</h1>
+    <form (ngSubmit)="login()" style="text-align: center;">
+        <div class="form-group">
+          <input type="text" class="form-control" name="username" id="username" [(ngModel)]="username" placeholder="Username">
+        </div>
+        <div class="form-group">
+          <input type="password" class="form-control" name = "password" id="password" [(ngModel)]="password" placeholder="Password">
+        </div>
+        <button type="submit" class="btn btn-primary">Login</button>
+    </form>
+</div>

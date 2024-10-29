@@ -1,0 +1,29 @@
+<body>
+    <h1 class="title" *ngIf="!selectedTeam">Teams</h1>
+
+    <div class="teams-container" *ngIf="!selectedTeamId">
+        <div *ngFor="let team of teams" class="teams">
+            <h1>{{ team.name }}</h1>
+            <p *ngFor="let teammate of team.teammates">
+                <span>{{teammate.profile.firstName + ' ' + teammate.profile.lastName}}</span>
+            </p>
+            <button (click)="onSelectTeam(team.id)">projects</button>
+        </div>
+        <div class="add-team" *ngIf="adminView">
+            <h1>add team</h1>
+            <button (click)="addTeam()">add</button>
+        </div>
+
+    </div>
+    <app-projects-page *ngIf="selectedTeamId"
+        [projects]="this.selectedTeamProjects"
+        (backEvent)="deselectTeam()"
+        [team]="this.selectedTeam"
+        [teamId]="this.selectedTeamId">
+    </app-projects-page>
+    <app-create-team-overlay *ngIf="showAddTeamModal"
+        [members]="this.companyMembers"
+        (backEvent)="stopShowingModal()"
+        (teamCreated)="reloadTeams()">
+    </app-create-team-overlay>
+</body>

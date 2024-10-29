@@ -1,0 +1,39 @@
+<div class="body">
+    <button class="back-button" (click)="backToTeams()">&larr; Back</button>
+    <h2 class="title">Projects for {{ this.team.name }}</h2>
+    <div class="projects-container">
+        <button class="new-project-button" (click)="openCreateProjectModal()" *ngIf="adminView">New</button>
+        <div class="projects" *ngIf="projects.length > 0; else noProjects">
+            <ul>
+                <li *ngFor="let project of projects">
+                    <div class="project-info">
+                        <h3>{{ project.name }}</h3>
+                        <p>{{ project.description }}</p>
+                    </div>
+                    <span class="project-status" [ngClass]="project.active ? 'active' : 'inactive'">
+                        {{ project.active ? 'Active' : 'Inactive' }}
+                    </span>
+                    <button class="edit-project-button" (click)="openEditProjectModal(project)">Edit</button>
+                </li>
+            </ul>
+        </div>
+
+        <ng-template #noProjects>
+            <p>No projects available for this team.</p>
+        </ng-template>
+    </div>
+    <app-create-project-overlay *ngIf="showCreateProjectModal"
+        [teamId]="this.teamId"
+        [team]="this.team"
+        (backEvent)="closeCreateProjectModal()"
+        (projectCreated)="reloadProjects()">
+    </app-create-project-overlay>
+
+    <app-edit-project-overlay *ngIf="showEditProjectModal"
+        [project]="this.projectToEdit"
+        [team]="this.team"
+        [adminView]="this.adminView"
+        (backEvent)="closeEditProjectModal()"
+        (projectEdited)="reloadProjects()">
+    </app-edit-project-overlay>
+</div>

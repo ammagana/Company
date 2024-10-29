@@ -1,0 +1,115 @@
+  h2.title {
+    text-align: center;
+    color: #1BA098;
+    margin-bottom: 30px;
+  }
+  
+  .projects-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #1F3B57;
+    color: #f4f4f4;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    position: relative;
+  }
+  
+  .new-project-button {
+    display: block;
+    margin: 0 auto 20px auto;
+    background-color: #1BA098;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+  
+  .new-project-button:hover {
+    background-color: #084C57;
+  }
+  
+  .projects ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .projects li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #1F3B57;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    color: white;
+  }
+  
+  .project-info {
+    flex-grow: 1;
+    max-width: 70%;
+  }
+  
+  .project-info h3 {
+    margin: 0;
+    font-size: 1.5rem;
+  }
+  
+  .project-info p {
+    margin: 0;
+    color: #b0bec5;
+  }
+  
+  .edit-project-button {
+    background-color: #1BA098;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-left: 20px;
+  }
+  
+  .edit-project-button:hover {
+    background-color: #084C57;
+  }
+
+  .back-button {
+    position: relative;
+    top: 10px;
+    left: 10px;
+    background: none;
+    border: none;
+    color: #1BA098;
+    text-decoration: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    margin-bottom: 20px;
+  }
+  
+  .back-button:hover {
+    text-decoration: underline;
+  }
+
+  .project-status {
+    display: inline-block;
+    text-align: center;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-weight: bold;
+    color: white;
+    margin-left: 10px;
+  }
+  
+  .project-status.active {
+    background-color: #1BA098;
+  }
+  
+  .project-status.inactive {
+    background-color: #E94E77;
+  }
+  
+  

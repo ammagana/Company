@@ -1,0 +1,38 @@
+<form [formGroup]="createTeamForm" (ngSubmit)="submitForm()">
+    <div class="modal" (click)="backToTeams()">
+        <button class="back-button" (click)="backToTeams()">&larr; Back</button>
+        <div class="modal-content" (click)="$event.stopPropagation()">
+  
+            <label for="team-name">Team Name</label>
+            <input type="text" name="team-name" id="team-name" formControlName="teamName"/>
+
+            <div *ngIf="createTeamForm.get('teamName')?.invalid && createTeamForm.get('teamName')?.touched">
+                <small>Team name is required.</small>
+            </div>
+    
+            <label for="description">Description</label>
+            <input type="text" name="description" id="description" formControlName="description"/>
+
+            <div *ngIf="createTeamForm.get('description')?.invalid && createTeamForm.get('description')?.touched">
+                <small>Description is required.</small>
+            </div>
+    
+            <h1>Select Members</h1>
+            <select name="members" id="members" formControlName="members" (change)="onSelectMember()">
+                <option [ngValue]="null" disabled selected>Pick an option</option>
+                <option *ngFor="let member of members" [ngValue]="member.id">
+                    {{ member.profile.firstName + ' ' + member.profile.lastName }}
+                </option>
+            </select>
+    
+            <div class="members-list">
+                <div *ngFor="let member of selectedMembers" class="member-chip">
+                    {{ member.profile.firstName + ' ' + member.profile.lastName }}
+                    <button (click)="removeMember(member.id)">&#x2716;</button>
+                </div>
+            </div>
+  
+            <button type="submit" [disabled]="createTeamForm.invalid">Submit</button>
+        </div>
+    </div>
+</form>

@@ -1,0 +1,92 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.2.1/dist/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+<table class="table" *ngIf="!showAddUser">
+    <thead>
+        <tr>
+            <th scope="col">
+                Name
+            </th>
+            <th scope="col">
+                Email
+            </th>
+            <th scope="col">
+                Active
+            </th>
+            <th scope="col">
+                Admin
+            </th>
+            <th scope="col">
+                Status
+            </th>
+        </tr>
+    </thead>
+    <ng-container *ngIf="users">
+        <tbody *ngFor="let user of users">
+            <tr>
+                <td scope="row">{{user.profile['firstName']}} {{user.profile['lastName']}}</td> 
+                <td scope="row">{{user.profile['email']}}</td>
+                <td scope="row">{{user.active}}</td>
+                <td score="row">{{user.admin}}</td>
+                <td scope="row">{{user.status}}</td>
+            </tr>
+        </tbody>
+        <button (click)="addUserView()" style="text-align: center;">Add User</button>
+    </ng-container>
+</table>
+
+<div>
+<form [formGroup]="addUserForm" *ngIf="showAddUser" (ngSubmit)="addUser()">
+    <!-- <button class="back-button" (click)="backToRegistry()">&larr; Back</button> -->
+    <div class="modal-content" (click)="$event.stopPropagation()">
+
+        <label for="firstName">First Name</label>
+        <input type="text" name="firstName" id="firstName" formControlName="firstName" />
+        <div *ngIf="addUserForm.get('firstName')?.invalid && addUserForm.get('firstName')?.touched">
+            <small>first name is required.</small>
+        </div>
+
+        <label for="lastName">Last Name</label>
+        <input type="text" name="lastName" id="lastName" formControlName="lastName" />
+        <div *ngIf="addUserForm.get('lastName')?.invalid && addUserForm.get('lastName')?.touched">
+            <small>last name is required.</small>
+        </div>
+
+        <label for="email">email</label>
+        <input type="text" name="email" id="email" formControlName="email" />
+        <div *ngIf="addUserForm.get('email')?.invalid && addUserForm.get('email')?.touched">
+            <small>valid email is required.</small>
+        </div>
+
+        <label for="phone">Phone</label>
+        <input type="text" name="phone" id="phone" formControlName="phone" />
+        <div *ngIf="addUserForm.get('phone')?.invalid && addUserForm.get('phone')?.touched">
+            <small>phone number is required.</small>
+        </div>
+
+        <label for="password">Password</label>
+        <input type="password" name="password" id="password" formControlName="password" />
+        <div *ngIf="addUserForm.get('password')?.invalid && addUserForm.get('password')?.touched">
+            <small>password is required.</small>
+        </div>
+
+        <label for="confirm">Confirm Password</label>
+        <input type="password" name="confirm" id="confirm" formControlName="confirm" />
+        <div
+            *ngIf="addUserForm.get('password')?.value != addUserForm.get('confirm')?.value && addUserForm.get('confirm')?.touched">
+            <small>Password does not match.</small>
+        </div>
+
+        <label>Is User Admin</label>
+        <select name="admin" id="admin" formControlName="admin">
+            <option [ngValue]="null" disabled selected>Pick an option</option>
+            <option [ngValue]="true">True</option>
+            <option [ngValue]="false">False</option>
+        </select>
+
+
+        <button type="submit" [disabled]="addUserForm.invalid">Submit</button>
+    </div>
+
+</form>
+</div>
+

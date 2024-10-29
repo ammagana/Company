@@ -1,0 +1,32 @@
+<div class="body" (click)="backToProjects()">
+    <button class="back-button" (click)="backToProjects()">&larr; Back</button>
+    <form [formGroup]="createEditProjectForm" (ngSubmit)="onSubmit()">
+        <div class="container" (click)="$event.stopPropagation()">
+            <div class="fields">
+                <label for="project-name">Project Name</label>
+                <input type="text" name="project-name" id="project-name" formControlName="projectName"/>
+                <div *ngIf="createEditProjectForm.get('projectName')?.invalid && createEditProjectForm.get('projectName')?.touched">
+                    <small>Project Name is required.</small>
+                </div>
+            </div>
+            <div class="fields">
+                <label for="project-description">Description</label>
+                <input type="text" name="project-description" id="project-description" formControlName="description"/>
+                <div *ngIf="createEditProjectForm.get('description')?.invalid && createEditProjectForm.get('description')?.touched">
+                    <small>Description is required.</small>
+                </div>
+            </div>
+            <div class="fields" *ngIf="adminView">
+                <select name="active-status" id="active-status" formControlName="activeStatus">
+                    <option [ngValue]="null" disabled>Pick an option</option>
+                    <option [ngValue]="true">Active</option>
+                    <option [ngValue]="false">Inactive</option>
+                </select>
+                <div *ngIf="createEditProjectForm.get('activeStatus')?.invalid && createEditProjectForm.get('activeStatus')?.touched">
+                    <small>this field is required.</small>
+                </div>
+            </div>
+            <button type="submit" [disabled]="createEditProjectForm.invalid">Submit</button>
+        </div>
+    </form>
+</div>

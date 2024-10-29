@@ -1,0 +1,66 @@
+  .teams-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    padding: 20px;
+    gap: 20px;
+    width: 75vw;
+    margin: 50px auto;
+    border-radius: 20px;
+  }
+  
+
+  .teams, .add-team {
+    width: 200px;
+    height: 200px;
+    background-color: #1F3B57;
+    border-radius: 10px;
+    margin: auto;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    overflow-y: auto;
+  }
+  
+  .teams h1, .add-team h1 {
+    font-size: 1.5rem;
+    text-align: center;
+    margin: 0;
+    color: white;
+  }
+  
+  .teams button, .add-team button {
+    background-color: #1BA098;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-top: 10px;
+    width: 100%;
+  }
+  
+  .teams button:hover, .add-team button:hover {
+    background-color: #084C57;
+  }
+
+  .teams p {
+    color: white;
+    text-align: center;
+    margin: 0;
+    width: 100%;
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .title{
+    text-align: center;
+    color: #1BA098;
+  }

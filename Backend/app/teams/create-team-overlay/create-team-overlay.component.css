@@ -1,0 +1,111 @@
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.modal-content {
+  display: flex;
+  flex-direction: column;
+  background-color: #1f3b57;
+  border-radius: 20px;
+  justify-content: center;
+  align-items: center;
+  width: 500px;
+  padding: 20px;
+  position: relative;
+}
+
+.modal-content h1, .modal-content label {
+  color: white;
+  text-align: center;
+  display: block;
+  margin-bottom: 20px;
+}
+
+.modal-content input[type="text"] {
+  background-color: #1f3b57;
+  border: 1px solid white;
+  border-radius: 5px;
+  padding: 10px;
+  width: 80%;
+  color: white;
+  margin-bottom: 20px;
+}
+
+.modal-content select {
+  background-color: #1f3b57;
+  border: 1px solid white;
+  border-radius: 5px;
+  padding: 10px;
+  width: 85%;
+  color: white;
+}
+
+.modal-content .members-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 20px 0;
+}
+
+.member-chip {
+  background-color: #1ba098;
+  color: white;
+  padding: 10px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.member-chip button {
+  background-color: transparent;
+  border: none;
+  color: white;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+.modal-content button[type="submit"] {
+  background-color: #1ba098;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  width: 50%;
+  cursor: pointer;
+}
+
+.modal-content button[type="submit"]:hover {
+  background-color: #084c57;
+}
+
+.back-button {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.2rem;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+.modal-content button:disabled {
+  background-color: #555;
+  color: #fff;
+  cursor: default;
+}
+
+small {
+  color: #FF6347;
+  font-size: 0.9rem;
+}

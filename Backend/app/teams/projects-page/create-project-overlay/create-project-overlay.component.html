@@ -1,0 +1,23 @@
+<div class="body" (click)="backToProjects()">
+    <button class="back-button" (click)="backToProjects()">&larr; Back</button>
+    <form [formGroup]="createProjectForm" (ngSubmit)="onSubmit()">
+        <div class="container" (click)="$event.stopPropagation()">
+            <div class="fields">
+                <label for="project-name">Project Name</label>
+                <input type="text" name="project-name" id="project-name" formControlName="projectName"/>
+                <div *ngIf="createProjectForm.get('projectName')?.invalid && createProjectForm.get('projectName')?.touched">
+                    <small>Project Name is required.</small>
+                </div>
+            </div>
+            <div class="fields">
+                <label for="project-description">Description</label>
+                <input type="text" name="project-description" id="project-description" formControlName="description"/>
+                <div *ngIf="createProjectForm.get('description')?.invalid && createProjectForm.get('description')?.touched">
+                    <small>Description is required.</small>
+                </div>
+            </div>
+            <button type="submit" [disabled]="createProjectForm.invalid">Submit</button>
+        </div>
+    </form>
+</div>
+
